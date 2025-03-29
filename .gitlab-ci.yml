@@ -1,0 +1,11 @@
+stages:
+  - secrets-scan
+
+secrets_scan:
+  image: zricethezav/gitleaks:latest
+  stage: secrets-scan
+  script:
+    - echo "Running secrets scan..."
+    - gitleaks detect --redact
+  allow_failure: false
+
